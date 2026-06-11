@@ -1,0 +1,76 @@
+{
+  "pluginAlias": "ProtectAlarm",
+  "pluginType": "platform",
+  "singular": true,
+  "headerDisplay": "Brings your UniFi Protect alarm into Apple HomeKit using a single UniFi OS API key. Generate a key under **Settings → Control Plane → Integrations** in your UniFi OS console.",
+  "footerDisplay": "Arm profiles named **Away** and **Night** are discovered automatically. If yours use different names, set them below, or pin explicit profile IDs under Advanced.",
+  "schema": {
+    "type": "object",
+    "properties": {
+      "name": {
+        "title": "Accessory Name",
+        "type": "string",
+        "default": "Security System",
+        "required": true
+      },
+      "controller": {
+        "title": "Controller Host / IP",
+        "type": "string",
+        "placeholder": "192.168.1.1",
+        "required": true,
+        "description": "Address of your UniFi OS console (UDM, UDM Pro/SE, Cloud Key Gen2+, NVR). No https:// prefix."
+      },
+      "apiKey": {
+        "title": "API Key",
+        "type": "string",
+        "required": true,
+        "description": "UniFi OS API key (Settings → Control Plane → Integrations)."
+      },
+      "awayProfileName": {
+        "title": "Away Profile Name",
+        "type": "string",
+        "default": "Away",
+        "description": "Arm profile to activate for HomeKit 'Away'."
+      },
+      "nightProfileName": {
+        "title": "Night Profile Name",
+        "type": "string",
+        "default": "Night",
+        "description": "Arm profile to activate for HomeKit 'Night'."
+      },
+      "pollInterval": {
+        "title": "Poll Interval (seconds)",
+        "type": "integer",
+        "default": 5,
+        "minimum": 2,
+        "maximum": 300,
+        "description": "How often to poll the NVR for state changes."
+      },
+      "awayArmProfileId": {
+        "title": "Away Profile ID (advanced)",
+        "type": "string",
+        "description": "Optional. Bypass name matching with an explicit profile ID."
+      },
+      "nightArmProfileId": {
+        "title": "Night Profile ID (advanced)",
+        "type": "string",
+        "description": "Optional. Bypass name matching with an explicit profile ID."
+      }
+    }
+  },
+  "layout": [
+    "name",
+    "controller",
+    "apiKey",
+    "awayProfileName",
+    "nightProfileName",
+    "pollInterval",
+    {
+      "type": "fieldset",
+      "title": "Advanced (optional)",
+      "expandable": true,
+      "expanded": false,
+      "items": ["awayArmProfileId", "nightArmProfileId"]
+    }
+  ]
+}
