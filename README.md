@@ -44,16 +44,6 @@ juggling — one key does everything.
 | **Home** | Disarm (Protect's alarm is one system, not zones) |
 | **Off** | Disarm |
 
-## Screenshots
-
-| Home app | Homebridge UI |
-|---|---|
-| *(add `images/home-app.png`)* | *(add `images/homebridge-ui.png`)* |
-
-> **Maintainer note:** drop two screenshots into `images/` and replace the
-> placeholders above — the Security System tile in the Home app, and the
-> plugin's settings form in the Homebridge UI.
-
 ## Requirements
 
 - A UniFi OS console running **UniFi Protect** with the alarm system set up
